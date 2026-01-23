@@ -1,0 +1,83 @@
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;        
+  justify-content: center;    
+  padding: 20px 0;
+}
+
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 450px;       
+}
+
+
+.formGroup label {
+  width: 120px;
+  font-weight: 600;
+  color: #333;
+  text-transform: capitalize;
+  text-align: right;
+}
+
+.formGroup input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus {
+  border-color: #facc15;
+}
+.buttonContainer {
+  margin-left: 170px;
+  margin-top: 10px;
+}
+
+
+.button {
+  margin-top: 20px;
+  background-color: #facc15;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+  width: 280px;
+}
+
+.button:hover {
+  background-color: #eab308;
+}
+
+
+@media (max-width: 480px) {
+  .formGroup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .formGroup label {
+    width: 100%;
+  }
+
+  .formGroup input {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

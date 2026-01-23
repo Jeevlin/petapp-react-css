@@ -1,0 +1,101 @@
+
+.modal-overlay {
+  position: fixed;
+  inset: 0; 
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-userdetails {
+  width: 800px;
+  height: 550px;
+}
+.modal-logout {
+  width: 1000px;
+  height: 300px ;
+}
+.modal-placeorder {
+  width: 800px;
+  height: 550px;
+}
+.modal-orderstatus {
+  width: 800px;
+  height: 600px;
+}
+
+.modal-header {
+  background-color: orange;
+  color: #000;
+  padding: 15px 20px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #000;
+  margin-left: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #0000006e;
+}
+
+
+.title-separator {
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #000;
+  font-size: 25px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+
+@media (max-width: 600px) {
+  .modal-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+
+  .title-separator {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+}

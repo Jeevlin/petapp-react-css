@@ -1,0 +1,206 @@
+/* General Layout */
+.section-container {
+  margin: 20px auto;
+ padding: 10px 20px;
+  max-width: 1150px;
+}
+
+/* Header */
+.header {
+  background-color: rgb(7, 21, 61);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard {
+  color: white;
+}
+.logout {
+  background-color: darkorange;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+}
+
+/* Outline Boxes */
+.outline {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.outline-large {
+  height: 400px;
+}
+.outline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dark-bg {
+  background-color: rgb(7, 21, 61);
+  color: white;
+}
+
+
+/* User Info */
+.user-row {
+  display: flex;
+  gap: 150px;
+  align-items: center;
+  position: relative;
+}
+.outline-header h5{
+    font-size: 16px;
+    font-weight: 500;
+}
+.imghome {
+    position: absolute;
+    top: 0px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.list {
+    position: absolute;
+    left: 200px;
+    top:20px;
+    color: rgb(7, 21, 61);
+  font-weight: 700;
+  font-size: small;
+  list-style: none;
+ 
+}
+.list li {
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.editbtn {
+  background-color: rgb(7, 21, 61);
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+}
+.findbtn {
+  border-radius: 10px;
+  background-color: white;
+  font-weight: 700;
+  font-size: small;
+  color: rgb(7, 21, 61);
+  width: 150px;
+  cursor: pointer;
+  height: 40px;
+}
+.filterbtn {
+  background-color: white;
+  border: 1px solid navy;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+.filterbtn.active {
+  background-color: navy;
+  color: white;
+}
+
+/* Pets Grid */
+.pets-header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.pets-header select {
+    position: absolute;
+    right: 0;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 5px;
+}
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Inputs */
+.input-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+ justify-content: space-between;
+   
+}
+.input-box input {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid black;
+  
+  width: 500px;
+  margin-left: 50px;
+}
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.editbtn:hover,
+.logout:hover,
+.findbtn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 0.10s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .user-row { 
+    position: static;          /* no absolute context */
+    flex-direction: column;    /* stack vertically */
+    align-items: center;       /* center horizontally */
+    text-align: center;        /* text in list centered */
+    gap: 15px; 
+ 
+  }
+  
+   .imghome {
+    position: static;          /* reset absolute */
+    margin: 0 auto;            /* center image */
+  }
+
+  .list {
+    position: static;          /* reset absolute */
+    margin: 0;                 /* clear old margins */
+    padding: 0;
+  }
+
+  .list li {
+    margin-bottom: 10px;       /* smaller gap for mobile */
+  }
+}
+@media (max-width: 600px) {
+  .pets-header {
+    flex-direction: column;     /* stack elements */
+    gap: 15px;                  /* spacing between title & select */
+  }
+
+  .pets-header select {
+    position: static;           /* remove absolute */
+    width: 100%;                /* full width on mobile */
+    max-width: 300px;           /* but not too wide */
+  }
+}
