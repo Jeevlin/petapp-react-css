@@ -1,0 +1,73 @@
+.category-modal {
+  padding: 10px 20px;
+}
+
+/* description */
+.category-description {
+  font-size: 18px;
+  font-weight: 620;
+  margin-top: 15px;
+  color: rgb(6, 6, 68);
+}
+
+/* category container */
+.category-box {
+  border: solid 2px rgb(22, 12, 112);
+  height: 140px;
+  width: 550px;
+  margin-left: 130px;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+/* category buttons */
+.category-pill {
+  background-color: white;
+  color: rgb(7, 21, 61);
+  border: solid 1px rgb(7, 21, 61);
+  border-radius: 40px;
+  width: 100px;
+  margin: 10px;
+  padding: 6px;
+  cursor: default;
+}
+
+/* empty state */
+.category-empty {
+  color: gray;
+}
+
+/* input row */
+.category-input-row {
+  display: flex;
+  margin-left: 200px;
+  color: rgb(6, 6, 68);
+  font-size: 20px;
+  align-items: center;
+  gap: 15px;
+}
+
+.category-input-row input {
+  border: solid 1px rgb(6, 6, 68);
+  border-radius: 5px;
+  width: 270px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  
+}
+
+/* save button */
+.category-save {
+  background-color: rgb(1, 1, 56);
+  color: white;
+  width: 200px;
+  margin-top: 50px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

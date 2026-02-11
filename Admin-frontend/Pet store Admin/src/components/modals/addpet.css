@@ -1,0 +1,44 @@
+.addpet-form {
+  padding: 20px;
+}
+
+.addpet-row {
+  display: flex;
+  margin-left: 250px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.addpet-row label {
+  width: 150px;
+  color: navy;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.addpet-row input {
+  border: solid 1px rgb(6, 6, 68);
+  border-radius: 5px;
+  width: 270px;
+  height: 35px;
+  background-color: white;
+  color: black;
+}
+
+.addpet-save {
+  background-color: rgb(1, 1, 56);
+  color: white;
+  width: 200px;
+  margin-left: 245px;
+  margin-top: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.addpet-error {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+}

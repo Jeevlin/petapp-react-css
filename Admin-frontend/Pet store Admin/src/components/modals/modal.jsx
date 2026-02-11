@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useState } from 'react';
 import './modal.css'
 import { useNavigate } from 'react-router-dom';
@@ -482,4 +482,4 @@ const handleSave = async (e) => {
     </Modal>
   </>
   )
-}
+} 

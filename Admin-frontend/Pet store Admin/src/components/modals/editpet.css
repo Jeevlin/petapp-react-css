@@ -1,0 +1,45 @@
+.editpet-form {
+  padding: 20px;
+}
+
+.editpet-row {
+  display: flex;
+  margin-left: 250px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.editpet-row label {
+  width: 140px;
+  color: navy;
+  font-weight: 700;
+}
+
+.editpet-row input {
+  border: solid 1px rgb(6, 6, 68);
+  border-radius: 5px;
+  width: 270px;
+  height: 35px;
+}
+
+.editpet-save {
+  background-color: rgb(1, 1, 56);
+  color: white;
+  width: 200px;
+  margin-left: 345px;
+  margin-top: 30px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.editpet-delete {
+  background-color: rgb(7, 21, 61);
+  color: white;
+  width: 200px;
+  margin-left: 550px;
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}

@@ -1,46 +1,98 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-.inventory{
-    display: flex;
-    flex-direction: column;
-}
-.heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-}
-.outborder{
-    border: solid 1px black;
-    border-radius: 15px;
-    width: 100%;
-    padding: 30px;
-    height: 800px;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.inline{
-    border: solid 1px black;
-    border-radius: 15px;
-    width: 100%;
-    height: 400px;
-    padding: 30px;
-    overflow-x: auto; 
-   
-}
-.buttons{
-    background-color: white;
-    color:rgb(7, 21, 61);
-    border: solid 1px rgb(7, 21, 61) ;
-    border-radius: 40px ;
-    height: 42px;
-    width: 100px;
-    margin-top: 50px;
-   
-
+.inventory {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
+/* Heading */
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inventory-title {
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.category-select {
+  margin-top: 40px;
+  padding: 8px 12px;
+}
+
+/* Main container */
+.outborder {
+  margin-top: 40px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+/* Category buttons row */
+.category-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.buttons {
+  background-color: white;
+  color: rgb(7, 21, 61);
+  border: 1px solid rgb(7, 21, 61);
+  border-radius: 40px;
+  height: 42px;
+  width: 110px;
+  cursor: pointer;
+}
+
+.buttons.active {
+  background-color: navy;
+  color: white;
+}
+
+/* Pets grid */
+.pets-container {
+  margin-top: 40px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 30px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+
+  height: 400px;
+  overflow-y: auto;
+}
+
+.pet-card {
+  display: flex;
+  justify-content: center;
+}
+
+/* Empty text */
+.empty-text {
+  grid-column: span 3;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Add pet button */
+.add-pet-button {
+  margin-top: 60px;
+  margin-left: 700px;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  cursor: pointer;
+}

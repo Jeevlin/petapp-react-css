@@ -1,10 +1,11 @@
 import React, { useState,useEffect } from "react";
 import "./inventory.css";
 import Cardcomp from "../components/cardcomp";
-
-
-import { deletePet, getPets } from "../../api.js/petApi";
-import { CategoryModal, EditPet ,QuickEdit,AddPet } from "../components/modal/modal";
+import  AddPet from "../components/modals/addpet"
+import CategoryModal from "../components/modals/category"
+import EditPet from "../components/modals/editpet";
+import QuickEdit from "../components/modals/quickedit";
+import {  getPets } from "../../api.js/petApi";
 import { getCategory } from "../../api.js/petApi";
 
 function Inventory() {
@@ -89,81 +90,125 @@ useEffect(() => {
     if (error) return <div>Error: {error}</div>;
  
     
-    return (
-        <div className="inventory">
-            <div className="heading">
-                <h3 className="col-1"  style={{ marginTop:"50px", 
-                                                fontWeight: "bold", 
-                                                width: "400px", 
-                                                marginLeft: '-68px' }}>Pet Store Inventory</h3>
-                <select className="col-1" style={{ marginTop:"50px"}}>
-                    <option onClick={() => setSelectedCategory('All')}>All</option>
-                   {category.length>0?( category.map((category,index)=>(
-                    <option key={index} onClick={() => setSelectedCategory(category.category)}>{category.category}</option>
-                   ))
-                ):(
-                    <div></div>
-                )}
-                </select>
+    
+   return (
+  <div className="inventory">
+    <div className="heading">
+      <h3 className="inventory-title">Pet Store Inventory</h3>
+
+      <select
+        className="category-select"
+        onChange={(e) => setSelectedCategory(e.target.value)}
+      >
+        <option value="All">All</option>
+        {category.length > 0 &&
+          category.map((cat, index) => (
+            <option key={index} value={cat.category}>
+              {cat.category}
+            </option>
+          ))}
+      </select>
+    </div>
+
+    <div className="outborder">
+      <div className="category-buttons">
+        <button
+          className={`buttons ${categoryIndex === null ? "active" : ""}`}
+          onClick={() => {
+            setSelectedCategory("All");
+            setCategoryIndex(null);
+          }}
+        >
+          All
+        </button>
+
+        {category.length > 0 &&
+          category.map((cat, index) => (
+            <button
+              key={index}
+              className={`buttons ${
+                categoryIndex === index ? "active" : ""
+              }`}
+              onClick={() => {
+                setSelectedCategory(cat.category);
+                setCategoryIndex(index);
+              }}
+            >
+              {cat.category}
+            </button>
+          ))}
+
+        <button
+          className="buttons"
+          onClick={() => setShowCategoryModal(true)}
+        >
+          + Add
+        </button>
+      </div>
+
+      <CategoryModal
+        show={showCategoryModal}
+        handleClose={() => setShowCategoryModal(false)}
+      />
+
+      <div className="pets-container">
+        {filteredPets.length > 0 ? (
+          filteredPets.map((pet, index) => (
+            <div className="pet-card" key={index}>
+              <Cardcomp
+                onClick={() => handleCardClick(pet)}
+                name={pet.name}
+                id={pet.id}
+                status={pet.status}
+                photoURLs={
+                  pet.photoURLs ||
+                  "https://via.placeholder.com/250"
+                }
+                onQuickEdit={() => handleQuickClick(pet)}
+              />
             </div>
-           
+          ))
+        ) : (
+          <p className="empty-text">
+            No pets available for this category
+          </p>
+        )}
+      </div>
 
-            <div className="outborder mt-5">
-            <button className="buttons"
-             style={{backgroundColor: categoryIndex === null ? "navy" : "white",
-                     color: categoryIndex === null ? "white" : "navy"}}
-            onClick={() => { setSelectedCategory('All');
-                             setCategoryIndex(null);}}>All</button>
-                
-            {category.length>0? (category.map((category,index)=>(
-                <button className="buttons ms-2" 
-                key={index} style={{backgroundColor: categoryIndex === index ? "navy" : "white",
-                                    color: categoryIndex === index ? "white" : "navy"}}
-                        onClick={() => {setSelectedCategory(category.category) , setCategoryIndex(index)}}>{category.category}</button>
-                ))
-            ):(
-                <div></div>
-            )}
-                
-                <button className="buttons ms-2" onClick={()=>{setShowCategoryModal(true)}}>+ Add</button>
-                <CategoryModal show={showCategoryModal} handleClose={()=>{setShowCategoryModal(false)}} />
+      <button
+        className="add-pet-button"
+        onClick={() => setShowAddPet(true)}
+      >
+        + Add New Pet
+      </button>
 
-                <div className="inline mt-5">
-                    <div className="row">
+      <AddPet
+        show={showAddPet}
+        handleClose={() => setShowAddPet(false)}
+        setFilteredPets={setFilteredPets}
+      />
 
-                    {filteredPets.length > 0 ? (
-                filteredPets.map((pet,index) => (
-                    <div className="col-4" style={{ marginBottom: "25px", marginTop: "25px" }} key={index}>
-                        <Cardcomp 
-                            onClick={() => handleCardClick(pet)}
-                            name={pet.name}
-                            id={pet. id}
-                            status={pet.status}
-                            photoURLs={pet.photoURLs ? pet.photoURLs : 'https://via.placeholder.com/250'}
-                            onQuickEdit={() => handleQuickClick(pet)}
-                        />
-                    </div>
-                ))
-            ) : (
-                <div>No pets available for this category</div>
-            )}
-                    </div>
-                </div>
+      {SelectedPet && (
+        <EditPet
+          show={showEditPet}
+          handleClose={() => setShowEditPet(false)}
+          pet={SelectedPet}
+        />
+      )}
 
-                <button className="button" style={{ marginLeft: '800px',
-                                                     marginTop: "100px" }}
-                                            onClick={()=>{setShowAddPet(true)}}>+ Add New Pet</button>
-                 <AddPet show={showAddPet} handleClose={()=>{setShowAddPet(false)}} setFilteredPets={setFilteredPets}/>
-                 {SelectedPet &&(
-                    <EditPet show={showEditPet} handleClose={()=>{setShowEditPet(false)}} pet={SelectedPet} /> 
-                 )}
-                 {SelectedPet &&(
-                    <QuickEdit show={showQuickEdit} handleClose={()=>{setShowQuickPet(false)}} pet={SelectedPet} /> 
-                 )}
-                
-            </div>
-        </div>
-    );
+      {SelectedPet && (
+        <QuickEdit
+          show={showQuickEdit}
+          handleClose={() => setShowQuickPet(false)}
+          pet={SelectedPet}
+        />
+      )}
+    </div>
+  </div>
+);
+
+
+   
 }
 
 export default Inventory;
