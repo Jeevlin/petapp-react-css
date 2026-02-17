@@ -71,3 +71,42 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.category-pill-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 6px;
+}
+
+.category-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background-color: #eef1f8;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.category-delete {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  background-color: #960d0f;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+
+.category-pill-wrapper:hover .category-delete {
+  opacity: 5;
+  transform: scale(1);
+}

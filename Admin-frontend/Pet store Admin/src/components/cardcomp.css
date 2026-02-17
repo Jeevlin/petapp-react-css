@@ -1,31 +1,80 @@
-.cardcomp{
-
-    border: solid 1px orange;
-    border-radius: 15px;
-    width:100%;
-    height: auto;
-    padding: 5px;
-    box-shadow: 0 4px 2px -2px BLACK;
+.cardcomp {
+  border: 1px solid orange;
+  border-radius: 15px;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 4px 2px -2px black;
+  cursor: pointer;
 }
-.catimage{
-    height: 160px;
-    width:150px;
-  
 
+/* Image */
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.flexdiv{
-    display: flex;
-    justify-content: center;
 
+.catimage {
+  height: 160px;
+  width: 150px;
+  object-fit: cover;
 }
-.orderbtn{
-    border: solid 1px orange;
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    padding: 0px;
-    font-size: 16px;
-    height: 35px;
-    width: 100px;
-   
+
+.no-image {
+  font-size: 14px;
+  color: gray;
+}
+
+/* Content */
+.card-content {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pet-name {
+  margin-bottom: 6px;
+}
+
+/* ID + copy */
+.id-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pet-id {
+  font-size: 14px;
+}
+
+.copy-icon {
+  cursor: pointer;
+  color: gray;
+}
+
+.copied-text {
+  font-size: 12px;
+  color: green;
+}
+
+/* Buttons */
+.orderbtn {
+  border: 1px solid orange;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  height: 35px;
+  width: 140px;
+  margin: 6px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.cardcomp:hover {
+  transform: translateY(-3px);
+  transition: 0.2s ease;
 }

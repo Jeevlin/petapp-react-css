@@ -1,8 +1,8 @@
 import axios from 'axios';
-const apiUrl = 'https://my-pet-app-ovo1.onrender.com/pet'
-const apiUrl1 = 'https://my-pet-app-ovo1.onrender.com/category'
-const apiUrl2 ='https://my-pet-app-ovo1.onrender.com/order'
-const apiUrl3 ='https://my-pet-app-ovo1.onrender.com/admin'
+const apiUrl ='https://petapp-react-css.onrender.com/pet'
+const apiUrl1 = 'https://petapp-react-css.onrender.com/category'
+const apiUrl2 ='https://petapp-react-css.onrender.com/order'
+const apiUrl3 ='https://petapp-react-css.onrender.com/admin'
 
 export const addPet = async(petData)=>{
     try{
@@ -70,6 +70,7 @@ export const addCategory= async (categoryData)=>{
 }
 
 export const getCategory = async()=>{
+
     try{
       const response = await axios.get(`${apiUrl1}/getCategory`)
       return response.data
@@ -79,6 +80,18 @@ export const getCategory = async()=>{
 
     }
 }
+export const deleteCategory = async (categoryId) => {
+  try {
+    const response = await axios.delete(
+      `${apiUrl1}/deleteCategory/${categoryId}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("error deleting category", error.response?.data);
+    throw error.response?.data || "Failed to delete category";
+  }
+};
+
 
 
 export const FindOrder = async (orderID) => {

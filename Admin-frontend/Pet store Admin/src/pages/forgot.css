@@ -1,0 +1,77 @@
+.forgot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7fb;
+}
+
+.forgot-form {
+  display: flex;
+  width: 900px;
+  height: 520px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.forgot-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.forgot-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: navy;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: serif;
+}
+
+.forgot-input {
+  width: 300px;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.forgot-input:focus {
+  outline: none;
+  border-color: navy;
+}
+
+.forgot-btn {
+  width: 300px;
+  padding: 10px;
+  background-color: darkblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.forgot-btn:hover {
+  background-color: #00008b;
+}
+
+.forgot-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef1f8;
+}
+
+.forgot-right img {
+  width: 360px;
+  height: 500px;
+  object-fit: cover;
+}

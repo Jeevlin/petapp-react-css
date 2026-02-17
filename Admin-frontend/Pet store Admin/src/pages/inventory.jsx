@@ -49,7 +49,7 @@ useEffect(() => {
         },1000)
         return () => clearInterval(interval); // Clean up
         
-    }, [pets]);
+    }, []);
     
       
         
