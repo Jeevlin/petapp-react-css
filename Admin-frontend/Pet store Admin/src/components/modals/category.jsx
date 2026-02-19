@@ -3,7 +3,7 @@ import BaseModal from "../common/basemodal";
 import { getCategory, addCategory, deleteCategory } from "../../../api.js/petApi";
 import "./Category.css";
 
-export default function CategoryModal({ show, handleClose }) {
+export default function CategoryModal({ show, handleClose, refreshCategories }) {
   const [categoryData, setCategoryData] = useState({ category: "" });
   const [categories, setCategories] = useState([]);
 
@@ -32,21 +32,26 @@ export default function CategoryModal({ show, handleClose }) {
     try {
       await addCategory(categoryData);
       setCategoryData({ category: "" });
-      fetchCategories();
+      await refreshCategories();
       handleClose();
     } catch {
       console.error("Failed to add category");
     }
   };
+const handleDelete = async (id) => {
+  try {
+    await deleteCategory(id);
 
-  const handleDelete = async (id) => {
-    try {
-      await deleteCategory(id);
-      fetchCategories();
-    } catch {
-      console.error("Failed to delete category");
-    }
-  };
+    // remove deleted category from modal immediately
+    setCategories((prev) => prev.filter((cat) => cat._id !== id));
+
+    // optional: update inventory page silently
+    refreshCategories();
+  } catch {
+    console.error("Failed to delete category");
+  }
+};
+
 
   return (
     <BaseModal show={show} onClose={handleClose} title="Add a Pet Category">

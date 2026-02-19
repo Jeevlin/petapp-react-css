@@ -17,10 +17,11 @@ function Inventory() {
     const [pets, setPets] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [category,setCategory]=useState('')
+    const [category,setCategory]=useState([])
     const [selectedCategory, setSelectedCategory] = useState('All'); // Tracks the selected category
     const [filteredPets, setFilteredPets] = useState([]);
     const[ categoryIndex,setCategoryIndex] =useState(null)
+    
    
 
 // Filter pets whenever the selected category changes
@@ -54,23 +55,18 @@ useEffect(() => {
       
         
 
-    useEffect(() => {
+const fetchCategories = async () => {
+  try {
+    const data = await getCategory();
+    setCategory(data.data);
+  } catch (err) {
+    console.error("failed to fetch categories");
+  }
+};
+useEffect(() => {
+  fetchCategories();
+}, []);
 
-        const getCat = async () => {
-            try {
-                const data = await getCategory();
-                setCategory(data.data);
-                
-            } catch (err) {
-                console.error("failed to fetch");
-            }  finally {
-                setLoading(false);
-            }
-        };
-      
-        getCat();
-      
-      },[]);
 
 
   
@@ -149,6 +145,7 @@ useEffect(() => {
       <CategoryModal
         show={showCategoryModal}
         handleClose={() => setShowCategoryModal(false)}
+        refreshCategories={fetchCategories}
       />
 
       <div className="pets-container">
