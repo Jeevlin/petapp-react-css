@@ -32,8 +32,12 @@ const login = async (req, res) => {
     if (!admin) {
       return res.status(404).json({ message: 'Admin not found' });
     }
+    if (!admin.password) {
+  return res.status(500).json({ message: "Password not set for admin" });
+}
 
-    const isMatch = bcrypt.compareSync(password, admin.password);
+    const isMatch = await bcrypt.compare(password, admin.password);
+
     console.log("Password match:", isMatch); // ✅
 
     if (!isMatch) {
